@@ -4,7 +4,6 @@ fa12 = sp.io.import_script_from_url("https://smartpy.io/templates/FA1.2.py")
 class Token(fa12.FA12):
     pass
         
-
 class VotingHub(sp.Contract):
     def __init__(self, params):
         self.init(
@@ -54,7 +53,6 @@ class VotingHub(sp.Contract):
             self.data.votesRecord[params.option] = 1
 
 
-
 @sp.add_test(name = "VotingHub")
 def test():
     # create test users
@@ -71,8 +69,6 @@ def test():
     # Add subheading
     scenario.h2("Initialise the contract")
 
-    
-
     token_metadata =  {
         "decimals": "0",
         "name": "Voting Token",
@@ -87,8 +83,6 @@ def test():
 
     # Add token to scenario
     scenario += token
-
-    
 
     votingHub = VotingHub(
         sp.record(
@@ -136,7 +130,5 @@ def test():
     votingHub.vote(
         option = "Mango"
     ).run(sender=alice, valid=False)
-
-    scenario.show(votingHub.data)
 
 
